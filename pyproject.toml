@@ -15,7 +15,9 @@ classifiers = [
 license = {text = "MIT"}
 dependencies = [
   "inapppy==2.5.2",
-    "typer"
+    "pyjwt[crypto]",
+    "typer",
+
 ]
 requires-python = ">= 3.10"
 
@@ -26,6 +28,7 @@ test = [
     "ruff",  # linting
     "ty", # checking types
     "ipdb", # debugging
+    "mock"
 ]
 
 [project.urls]
