@@ -1,18 +1,11 @@
 import logging
-import requests
-import jwt
-import json
 import time
-from urllib3.util import Retry
+
+import jwt
+import requests
 from requests import Session
 from requests.adapters import HTTPAdapter
-import csv
-import requests
-import logging
-import time
-import re
-import json
-from pathlib import Path
+from urllib3.util import Retry
 
 from .exceptions import AppStoreRequestException, AppStoreException
 
@@ -27,7 +20,7 @@ class Appstore:
     """
 
     base_url_v1 = "https://api.appstoreconnect.apple.com/v1/"
-    base_url_v2 = "https://api.appstoreconnect.apple.com//v2"
+    base_url_v2 = "https://api.appstoreconnect.apple.com/v2/"
 
     def __init__(self, key_id, issuer_id, ios_bundle_id, private_key):
         self.key_id = key_id
@@ -151,7 +144,7 @@ class Appstore:
         """ Create appstore product and returns its id. """
         headers = headers or self.get_auth_headers()
 
-        url = self.base_url_v2 + "/inAppPurchases"
+        url = self.base_url_v2 + "inAppPurchases"
         data = {
             "data": {
                 "type": "inAppPurchases",
